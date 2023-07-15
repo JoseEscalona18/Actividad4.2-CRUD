@@ -4,9 +4,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
+    background-image: url("/images/background2.jpg");
+    background-size: 100%;
+
 }
 
-h1, label{
+h1, label, thead{
     font-family: Poppins;
 }
 
@@ -19,11 +22,12 @@ h1{
 
 main {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 60px auto ;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(198, 209, 255, 0.95);
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .datosFrom {
@@ -39,7 +43,7 @@ label {
 
 form input {
     display: block;
-    width: 90%;
+    width: 95%;
     height: 15px;
     font-size: 16px;
     padding: 10px;
@@ -52,4 +56,55 @@ form input {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+}
+
+.botonAgregar,
+.botonEditar,
+.botonCancelar {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.botonAgregar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+  
+.botonAgregar:hover {
+    background-color: #0069d9;
+}
+  
+.botonEditar {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+  
+.botonEditar:hover {
+    background-color: #218838;
+}
+  
+.botonCancelar {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+  
+.botonCancelar:hover {
+    background-color: #c82333;
+}
+  
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: #7fbdff;
 }

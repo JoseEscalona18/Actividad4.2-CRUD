@@ -48,7 +48,7 @@ form input {
     font-size: 16px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 0;
 }
 
 .botonesForm {
@@ -106,5 +106,6 @@ table {
 }
 
 thead{
-    background-color: #7fbdff;
+    background-color: rgb(23, 32, 85);
+    color: white;
 }

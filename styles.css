@@ -115,3 +115,14 @@ thead{
     background-color: rgb(23, 32, 85);
     color: white;
 }
+
+tbody th, tbody td {
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+tbody td {
+    font-size: 16px;
+}

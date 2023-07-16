@@ -14,7 +14,6 @@ class Contacto {
 function agregarContacto(contacto) {
 
   const contactos = JSON.parse(localStorage.getItem("contactos")) || [];
-  console.log(contactos)
   contactos.push(contacto);
   localStorage.setItem("contactos", JSON.stringify(contactos));
 }

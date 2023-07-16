@@ -14,6 +14,7 @@ class Contacto {
 function agregarContacto(contacto) {
 
   const contactos = JSON.parse(localStorage.getItem("contactos")) || [];
+  console.log(contactos)
   contactos.push(contacto);
   localStorage.setItem("contactos", JSON.stringify(contactos));
 }
@@ -21,10 +22,34 @@ function agregarContacto(contacto) {
 // CUANDO SE LE DA CLICK AL BOTON DE AGREGAR
 document.getElementById("agregar").addEventListener("click", () => {
 
+  const contactos = JSON.parse(localStorage.getItem("contactos"))
   const nombre = document.getElementById("nombre").value;
   const apellido = document.getElementById("apellido").value;
   const telefono = document.getElementById("telefono").value;
-  if (nombre && apellido && telefono){
+
+  var numeroRegistrado = contactos.find(function(contacto) {
+    return contacto.telefono === telefono;
+  });
+
+  if (numeroRegistrado) {
+    const mensajeEmergente = document.getElementById('mensajeEmergente')
+    mensajeEmergente.style.display = 'block';
+    mensajeEmergente.innerHTML = `
+    <div class='contenedorEmergente'>
+      <div class='textoEmergente'> 
+        <h2>Número de Teléfono ya registrado</h2>
+        <img src="./images/x.png">
+      </div>
+    `
+
+    setTimeout(() => {
+      mensajeEmergente.style.display = 'none';
+    }, 2000);
+    return;
+  }
+
+  if (nombre && apellido && numeroRegistrado === undefined){
+    
     const contacto = new Contacto(nombre, apellido, telefono);
     agregarContacto(contacto);
     limpiarFormulario()
@@ -128,7 +153,7 @@ function editarContacto(index) {
   const contacto = contactos[index];
 
   document.getElementById("nombre").value = contacto.nombre;
-  document.getElementById("apellido").value = contacto.apellido;
+  document.getElementById("apellido").value = contacto.apellido;  
   document.getElementById("telefono").value = contacto.telefono;
 
   document.getElementById("editar").style.display = "inline-block";
@@ -144,6 +169,29 @@ document.getElementById("editar").addEventListener("click", () => {
   const nombre = document.getElementById("nombre").value;
   const apellido = document.getElementById("apellido").value;
   const telefono = document.getElementById("telefono").value;
+
+  var numeroRegistrado = contactos.find(function(contacto) {
+    return contacto.telefono === telefono;
+  });
+
+  if (numeroRegistrado) {
+    const mensajeEmergente = document.getElementById('mensajeEmergente')
+    mensajeEmergente.style.display = 'block';
+    mensajeEmergente.innerHTML = `
+    <div class='contenedorEmergente'>
+      <div class='textoEmergente'> 
+        <h2>Número de Teléfono ya registrado</h2>
+        <img src="./images/x.png">
+      </div>
+    `
+
+    setTimeout(() => {
+      mensajeEmergente.style.display = 'none';
+    }, 2000);
+    return;
+  }
+
+
   const contacto = new Contacto(nombre, apellido, telefono);
   contactos[indexEditar] = contacto;
   localStorage.setItem("contactos", JSON.stringify(contactos));

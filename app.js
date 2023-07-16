@@ -98,7 +98,6 @@ function mostrarContactos() {
         let celdaAcciones = document.createElement("td");
 
         // GENERA EL BOTON DE EDITAR
-
         let botonEditar = document.createElement("button");
         botonEditar.textContent = "Editar";
         botonEditar.classList.add("botonEditar");
@@ -107,8 +106,14 @@ function mostrarContactos() {
         });
         celdaAcciones.appendChild(botonEditar);
     
-
-
+        // GENERA EL BOTON DE ELIMINAR
+        let botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.classList.add("botonEliminar");
+        botonEliminar.addEventListener("click", () => {
+          eliminarContacto(i);
+        });
+        celdaAcciones.appendChild(botonEliminar);
     
         fila.appendChild(celdaAcciones);
     
@@ -172,6 +177,14 @@ document.getElementById("cancelar").addEventListener("click", () => {
 
   indexEditar = -1;
 });
+
+//FUNCION PARA ELIMINAR CONTACTO
+function eliminarContacto(index) {
+  const contactos = JSON.parse(localStorage.getItem("contactos"));
+  contactos.splice(index, 1);
+  localStorage.setItem("contactos", JSON.stringify(contactos));
+  mostrarContactos();
+}
 
 
 mostrarContactos()

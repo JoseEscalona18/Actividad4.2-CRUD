@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 body {
     margin: 0;
@@ -6,7 +7,6 @@ body {
     background-color: #f2f2f2;
     background-image: url("/images/background2.jpg");
     background-size: 100%;
-
 }
 
 h1, label, thead{
@@ -22,11 +22,11 @@ h1{
 
 main {
     max-width: 600px;
-    margin: 60px auto ;
     padding: 20px;
     background-color: rgba(198, 209, 255, 0.95);
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin:  80px auto;
 
 }
 
@@ -66,7 +66,8 @@ form input {
 
 .botonAgregar,
 .botonEditar,
-.botonCancelar {
+.botonCancelar,
+.botonEliminar {
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -84,11 +85,22 @@ form input {
 .botonAgregar:hover {
     background-color: #0069d9;
 }
+
+.botonEliminar {
+    background-color: #e2020d;
+    color: #fff;
+    border: none;
+}
+  
+.botonEliminar:hover {
+    background-color: #700006;
+}
   
 .botonEditar {
     background-color: #28a745;
     color: #fff;
     border: none;
+    margin-right: 5px;
 }
   
 .botonEditar:hover {
@@ -109,6 +121,7 @@ table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 thead{
@@ -116,11 +129,12 @@ thead{
     color: white;
 }
 
-tbody th, tbody td {
+tbody td {
     padding: 10px;
     text-align: center;
     background-color: white;
     border: 1px solid #ddd;
+    font-family: Lato;
 }
 
 tbody td {
